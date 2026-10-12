@@ -1,0 +1,38 @@
+// Run in Azure portal > Log Analytics workspace (log-...) > Logs.
+// Logs can take 5-15 minutes to appear. Run each query on its own.
+// Depending on how a resource stores logs, rows land in a resource-specific
+// table or in AzureDiagnostics - try both if one is empty.
+
+// ---------------------------------------------------------------------------
+// PHASE 1
+// ---------------------------------------------------------------------------
+
+// Key Vault audit events (who accessed the vault, which operation)
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| project TimeGenerated, OperationName, CallerIPAddress, ResultSignature
+| sort by TimeGenerated desc
+| take 20
+
+// NSG events (rule changes and rule hits)
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.NETWORK" and Category == "NetworkSecurityGroupEvent"
+| sort by TimeGenerated desc
+| take 20
+
+// Activity log: who changed what in the resource group (useful after the drift test)
+// (In the portal: Monitor > Activity log, filtered to the resource group, also works.)
+
+// ---------------------------------------------------------------------------
+// PHASE 2
+// ---------------------------------------------------------------------------
+
+// Serverless SQL queries run in Synapse
+SynapseBuiltinSqlPoolRequestsEnded
+| sort by TimeGenerated desc
+| take 20
+
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.SYNAPSE"
+| sort by TimeGenerated desc
+| take 20

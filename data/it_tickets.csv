@@ -1,0 +1,21 @@
+ticket_id,opened_date,category,priority,assignment_group,status,resolution_hours
+INC1001,2026-09-01,Access Request,P3,Provisioning,Resolved,4.5
+INC1002,2026-09-01,AVD Connection,P2,Provisioning,Resolved,2.0
+INC1003,2026-09-02,Intune Enrollment,P3,Endpoint,Resolved,6.0
+INC1004,2026-09-02,Access Request,P4,Provisioning,Resolved,8.0
+INC1005,2026-09-03,Password Reset,P3,Service Desk,Resolved,0.5
+INC1006,2026-09-03,Privileged Access,P2,IAM,Resolved,12.0
+INC1007,2026-09-04,AVD Connection,P2,Provisioning,Resolved,1.5
+INC1008,2026-09-04,Software Install,P4,Endpoint,Resolved,24.0
+INC1009,2026-09-05,Access Request,P3,Provisioning,Resolved,3.0
+INC1010,2026-09-05,Third Party System,P3,TPS,Resolved,30.0
+INC1011,2026-09-08,AVD Connection,P1,Provisioning,Resolved,1.0
+INC1012,2026-09-08,Intune Compliance,P3,Endpoint,Resolved,5.5
+INC1013,2026-09-09,Access Request,P4,Provisioning,Resolved,7.0
+INC1014,2026-09-09,Privileged Access,P2,IAM,Resolved,16.0
+INC1015,2026-09-10,Software Install,P4,Endpoint,Open,
+INC1016,2026-09-10,Password Reset,P3,Service Desk,Resolved,0.3
+INC1017,2026-09-11,AVD Connection,P2,Provisioning,Resolved,2.5
+INC1018,2026-09-11,Access Request,P3,Provisioning,Open,
+INC1019,2026-09-12,Intune Enrollment,P3,Endpoint,Resolved,4.0
+INC1020,2026-09-12,Third Party System,P2,TPS,Open,

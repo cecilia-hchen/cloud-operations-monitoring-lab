@@ -1,0 +1,10 @@
+# Copy this file to terraform.tfvars and fill in your values.
+# terraform.tfvars is git-ignored - never commit it.
+
+subscription_id = "00000000-0000-0000-0000-000000000000"   # az account show --query id -o tsv
+client_ip       = "203.0.113.10"                            # your public IP, e.g. from https://ifconfig.me
+location        = "canadacentral"
+project_name    = "cloudops"
+
+# Phase 1: leave false. Phase 2: change to true and run terraform apply again.
+enable_synapse = false
