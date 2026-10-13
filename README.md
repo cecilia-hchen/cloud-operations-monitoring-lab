@@ -110,7 +110,7 @@ $rg = terraform "-chdir=../terraform" output -raw resource_group_name
 3. `terraform plan` shows exactly what drifted; `terraform apply` restores the standard.
 4. Run the health check again: everything is **PASS**.
 
-## Phase 2 (in progress)
+## Phase 2
 
 ```bash
 az provider register --namespace Microsoft.Synapse
@@ -120,6 +120,15 @@ terraform apply tfplan
 ```
 
 Open `terraform output -raw synapse_studio_url` → **Develop → + → SQL script** → **Connect to: Built-in**, and run the queries in `sql/serverless_queries.sql` (replace `<storage_account_name>`).
+
+### Results
+
+Ticket volume, open tickets and average resolution time by category, queried in place from the data lake:
+![Ticket analysis with Synapse serverless SQL](docs/10-synapse-tickets.png)
+
+Compliance trend across health-check runs. The middle run captured a drift event (a required tag was removed), which Terraform then restored:
+![Compliance trend](docs/11-synapse-trend.png)
+![Which checks failed](docs/12-synapse-failures.png)
 
 ## Clean up
 
